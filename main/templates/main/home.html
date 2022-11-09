@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<p>home.html</p><hr>
+<h1>Home</h1>
+
+<h2>All To-Do Lists</h2>
+
+<!-- {{ object_list }} -->
+
+{% for instance in object_list%}
+    <p><a href="{{instance.id}}">{{ instance.id }} - {{ instance }}</a></p>
+{% endfor %}
+
+
+<hr>
+<h1>Create New Todo List</h1>
+<form method="post" action="/">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit", name="save">Create New</button> 
+</form>
+<hr>
+
+
+{% endblock %}
