@@ -4,12 +4,12 @@
 <p>home.html</p><hr>
 <h1>Home</h1>
 
-<h2>All Tweet Messages</h2>
+<h2>Tweet Lists</h2>
 
 <!-- {{ object_list }} -->
 
 {% for instance in object_list%}
-    <p><a href="{{instance.id}}">{{ instance }}</a></p>
+    <h3><a href="{{instance.id}}">{{ instance }}</a></h3>
 {% endfor %}
 
 <!-- 
