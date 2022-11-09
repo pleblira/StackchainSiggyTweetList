@@ -21,9 +21,27 @@ def todolist_display(response, id):
             txt = response.POST.get("new")
             if len(txt) > 0:
                 ls.item_set.create(text=txt, complete=False)
+                print(txt)
             else:
                 messages.error(response,"title can't be empty")
                 print("invalid")
+        elif response.POST.get("deleteItem"):
+            print("pressed delete tweet button")
+            print(f"this is the response: {response.POST.get('deleteItem')}")
+            for item in ls.item_set.all():
+                print(item.id)
+                if int(response.POST.get("deleteItem")) == item.id:
+                    item.delete()
+                    print("item igual")
+                else:
+                    print("item nao igual")
+            return HttpResponseRedirect("/" + str(id))
+        elif response.POST.get("printItem"):
+            print("pressed print item button")
+            for item in ls.item_set.all():
+                if int(response.POST.get("printItem")) == item.id:
+                    print(item)
+            return HttpResponseRedirect("/" + str(id))
         elif response.POST.get("delete"):
             print(id)
             ToDoList.delete(ls)
