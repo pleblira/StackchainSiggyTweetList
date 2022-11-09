@@ -35,7 +35,7 @@ DEBUG = True
 # ALLOWED_HOSTS = ["mysite-production-9b66.up.railway.app","127.0.0.1"]
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ['https://railway.pleblira.com']
+CSRF_TRUSTED_ORIGINS = ['https://railway.pleblira.com', 'https://stackchain.pleblira.com', 'https://scmascot.pleblira.com']
 
 # Application definition
 
