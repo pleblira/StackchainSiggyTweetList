@@ -3,10 +3,17 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import ToDoList, Item
 from .forms import CreateNewList
 from django.contrib import messages
+from practicingsq3lite import *
 
 # Create your views here.
 
 def todolist_display(response, id):
+    if id == 25:
+        tweet_type = "stackchain"
+    elif id == 26:
+        tweet_type = "stackchaintip"
+    else:
+        tweet_type = "stackjoin"
     ls = ToDoList.objects.get(id=id)
     if response.method == "POST":
         print(response.POST)
@@ -25,16 +32,18 @@ def todolist_display(response, id):
             else:
                 messages.error(response,"title can't be empty")
                 print("invalid")
+            update_s3(tweet_type)
         elif response.POST.get("deleteItem"):
             print("pressed delete tweet button")
             print(f"this is the response: {response.POST.get('deleteItem')}")
             for item in ls.item_set.all():
                 print(item.id)
                 if int(response.POST.get("deleteItem")) == item.id:
-                    item.delete()
                     print("item igual")
+                    item.delete()
                 else:
                     print("item nao igual")
+            update_s3(tweet_type)
             return HttpResponseRedirect("/" + str(id))
         elif response.POST.get("printItem"):
             print("pressed print item button")

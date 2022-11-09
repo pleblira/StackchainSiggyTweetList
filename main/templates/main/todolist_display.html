@@ -12,7 +12,8 @@
     <ul>
     {% for item in ls.item_set.all %}
             <div style="margin:5px;">
-            <div style="margin:5px 5px; padding:5px; background-color: green; color:white;">{{item.text|linebreaksbr}}</div><button type="submit", name="deleteItem", value="{{item.id}}">Delete Tweet Message</button><button type="submit", name="printItem", value="{{item.id}}">Print Item</button></p>
+            <div style="margin:5px 5px; padding:5px; background-color: green; color:white;">{{item.text|linebreaksbr}}</div>
+            <button type="submit", name="deleteItem", value="{{item.id}}">Delete Tweet Message</button>
             </div>
             <hr style="width:35%;" align="left">
     {% endfor %}
