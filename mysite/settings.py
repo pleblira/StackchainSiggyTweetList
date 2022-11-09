@@ -35,8 +35,6 @@ ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = ['https://railway.pleblira.com']
 
-import os
-
 # Application definition
 
 INSTALLED_APPS = [
