@@ -3,25 +3,28 @@
 {% block title %}View List{% endblock %}
 
 {% block content %}
+
+
 <p>list.html</p><hr>
     <h1>{{ls.name}}</h1>
     <form method="post" action="#">
     {% csrf_token %}
     <ul>
     {% for item in ls.item_set.all %}
-        {% if item.complete == True %}
-            <li><input type="checkbox", value="clicked", name="c{{item.id}}" checked>{{item.text}}</li>
-        {% else %}
-            <li><input type="checkbox", value="clicked", name="c{{item.id}}">{{item.text}}</li>
-        {% endif %}
+            <div style="margin:5px;">
+            <div style="margin:5px 5px; padding:5px; background-color: green; color:white;">{{item.text|linebreaksbr}}</div><button type="submit", name="deleteItem", value="{{item.id}}">Delete Tweet Message</button><button type="submit", name="printItem", value="{{item.id}}">Print Item</button></p>
+            </div>
+            <hr style="width:35%;" align="left">
     {% endfor %}
-    </ul>
-    <p><button type="submit", name="save", value="save">Save</button></p>
-    <p><input type="text", name="new">
-    <button type="submit", name="newItem", value="newItem">Add To-Do Item</button></p>
-    <p><button type="submit", name="delete", value="delete">Delete To-Do List</button></p>
+    <!-- <p><button type="submit", name="save", value="save">Save</button></p> -->
+    <p>
+    <!-- <input type="text", name="new" rows="5" cols="60"> -->
+    <textarea type="text", name="new" rows="5" cols="60" maxlength="280"></textarea>
+    <button type="submit", name="newItem", value="newItem">Add Tweet Message</button>
+    </p>
+    <!-- <p><button type="submit", name="delete", value="delete">Delete To-Do List</button></p> -->
     <hr>
-    <p><a href="/">Back to all to-do lists</a></p>
+    <p><a href="/">Back to tweet types</a></p>
 
     {% if messages %}
         {% for message in messages %}

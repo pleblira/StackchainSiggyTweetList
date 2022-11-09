@@ -4,15 +4,15 @@
 <p>home.html</p><hr>
 <h1>Home</h1>
 
-<h2>All To-Do Lists</h2>
+<h2>All Tweet Messages</h2>
 
 <!-- {{ object_list }} -->
 
 {% for instance in object_list%}
-    <p><a href="{{instance.id}}">{{ instance.id }} - {{ instance }}</a></p>
+    <p><a href="{{instance.id}}">{{ instance }}</a></p>
 {% endfor %}
 
-
+<!-- 
 <hr>
 <h1>Create New Todo List</h1>
 <form method="post" action="/">
@@ -20,7 +20,7 @@
     {{form.as_p}}
     <button type="submit", name="save">Create New</button> 
 </form>
-<hr>
+<hr> -->
 
 
 {% endblock %}
