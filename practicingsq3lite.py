@@ -33,6 +33,9 @@ def update_s3(tweet_type):
   elif tweet_type == "stackchaintip":
     tweet_type_column_number = 26
     tweets_json_file_location = "tweetlist_jsons/stackchaintip.json"
+  elif tweet_type == "pbstack":
+    tweet_type_column_number = 28
+    tweets_json_file_location = "tweetlist_jsons/pbstack.json"
   else:
     tweet_type_column_number = 27
     tweets_json_file_location = "tweetlist_jsons/stackjoin.json"

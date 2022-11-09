@@ -12,6 +12,8 @@ def todolist_display(response, id):
         tweet_type = "stackchain"
     elif id == 26:
         tweet_type = "stackchaintip"
+    elif id == 28:
+        tweet_type = "pbstack"
     else:
         tweet_type = "stackjoin"
     ls = ToDoList.objects.get(id=id)
