@@ -11,7 +11,7 @@
     <ul>
     {% for item in ls.item_set.all %}
             <div style="margin:5px;">
-            <div style="margin:5px 5px; padding:5px; background-color: green; color:white;">{{item.text|linebreaksbr}}</div>
+            <div style="margin:5px 5px; padding:5px; background-color: green; color:white; width:50%; min-width: 350px;">{{item.text|linebreaksbr}}</div>
             <button type="submit", name="deleteItem", value="{{item.id}}">Delete Tweet Message</button>
             </div>
             <hr style="width:35%;" align="left">
